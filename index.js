@@ -9,12 +9,12 @@ const pokemons = [
     imgUrl: "https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000101.png",
   },
   {
-    name: "이상해풀",
-    imgUrl: "https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000101.png",
+    name: "리자드",
+    imgUrl: "https://data1.pokemonkorea.co.kr/newdata/pokedex/full/000501.png",
   },
   {
-    name: "이상해꽃",
-    imgUrl: "https://data1.pokemonkorea.co.kr/newdata/pokedex/full/000302.png",
+    name: "꼬부기",
+    imgUrl: "https://data1.pokemonkorea.co.kr/newdata/pokedex/full/000701.png",
   },
 ];
 
@@ -22,7 +22,11 @@ const pokemons = [
 app.get("/pokemon/:id", (req, res) => {
   // req.params 클라이언트 요청 변수값
   console.log(req.params);
-  res.send(`<img src='${pokemons[req.params.id]}' alt='${req.params.id}' />`);
+  const html = `
+    <img src='${pokemons[req.params.id].imgUrl}' alt='${req.params.id}' />
+    <h3>${pokemons[req.params.id].name}</h3>
+  `
+  res.send(html);
 });
 
 // get 요청
